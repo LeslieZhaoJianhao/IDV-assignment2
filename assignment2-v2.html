@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 2 - SVG Exercise Version 2</title>
+  <style>
+    body { margin: 32px auto; padding: 0 20px; max-width: 1200px; font-family: Arial, sans-serif; color: #111; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 21px; }
+    section { margin: 44px 0; padding-bottom: 24px; border-bottom: 1px solid #ddd; }
+    svg { display: block; width: 100%; height: auto; background: white; }
+    svg text { font-family: Arial, sans-serif; }
+    .inspect:hover { opacity: 0.7; }
+    .node:hover > rect, .node:hover > ellipse { fill: #edf5ff; }
+    .edge { pointer-events: stroke; }
+    .edge:hover { stroke: #1976d2; }
+    .hierarchy:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+  <h1>SVG Coding Exercise</h1>
+  <p>Seven SVG diagrams. Move the mouse over the shapes to highlight them.</p>
+
+  <section>
+    <h2>Image 009 - Tower of Hanoi</h2>
+    <svg width="1100" height="510" viewBox="0 0 1100 510" role="img" aria-labelledby="hanoi-title">
+      <title id="hanoi-title">Tower of Hanoi with five disks on source A, destination B and auxiliary C</title>
+      <defs>
+        <linearGradient id="peg-gradient" x2="0" y2="1"><stop stop-color="#bbb"/>
+        <stop offset="1" stop-color="#444"/></linearGradient>
+        <linearGradient id="disk-gradient"><stop stop-color="#444"/>
+        <stop offset=".5" stop-color="#bbb"/>
+        <stop offset="1" stop-color="#444"/></linearGradient>
+      </defs>
+      <g text-anchor="middle" font-size="30">
+        <text x="235" y="50">A</text>
+        <text x="565" y="50">B</text>
+        <text x="895" y="50">C</text>
+        <text x="235" y="482">source</text>
+        <text x="565" y="482">destination</text>
+        <text x="895" y="482">auxiliary</text>
+      </g>
+      <g fill="url(#peg-gradient)" stroke="black" stroke-width="2">
+        <rect x="217" y="105" width="36" height="290"/>
+        <rect x="547" y="105" width="36" height="290"/>
+        <rect x="877" y="105" width="36" height="290"/>
+      </g>
+      <g fill="url(#disk-gradient)" stroke="black" stroke-width="2" text-anchor="middle" font-size="28">
+        <g class="inspect"><title>Disk 5: largest</title><rect x="112" y="360" width="246" height="35"/>
+        <text x="235" y="387" fill="black" stroke="none">n</text></g>
+        <g class="inspect"><title>Disk 4</title><rect x="130" y="325" width="210" height="35"/>
+        <text x="235" y="352" fill="black" stroke="none">n - 1</text></g>
+        <g class="inspect"><title>Disk 3: intermediate disk</title><rect x="148" y="255" width="174" height="70" fill="white"/>
+        <text x="235" y="300" fill="black" stroke="none">...</text></g>
+        <g class="inspect"><title>Disk 2</title><rect x="165" y="220" width="140" height="35"/>
+        <text x="235" y="248" fill="black" stroke="none">2</text></g>
+        <g class="inspect"><title>Disk 1: smallest</title><rect x="182" y="185" width="106" height="35"/>
+        <text x="235" y="212" fill="black" stroke="none">1</text></g>
+      </g>
+      <g fill="black"><rect x="94" y="395" width="282" height="36"/>
+        <rect x="424" y="395" width="282" height="36"/>
+        <rect x="754" y="395" width="282" height="36"/></g>
+      <path d="M68 190 H86 M77 190 V352 M68 352 H86 M77 360 V389 M68 389 H86" fill="none" stroke="black" stroke-width="4"/>
+      <text transform="translate(51 278) rotate(-90)" text-anchor="middle" font-size="28">n - 1 disks</text>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Image 006 - Linked List</h2>
+    <svg width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-labelledby="list-title">
+      <title id="list-title">Linked list with head, tail, element fields, and curved next pointers</title>
+      <defs><marker id="list-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+      <g fill="none" stroke="black" stroke-width="3" marker-end="url(#list-arrow)">
+        <path class="edge" d="M67 68 C55 110 75 130 116 137" stroke-dasharray="12 9"/>
+        <path class="edge" d="M94 68 Q285 35 373 121"/>
+        <path class="edge" d="M273 184 C363 183 284 149 373 137" stroke-dasharray="12 9"/>
+        <path class="edge" d="M533 184 Q580 184 580 160 Q580 137 633 137"/>
+        <path class="edge" d="M793 184 Q839 184 867 144"/>
+        <path class="edge" d="M910 182 Q952 190 1003 137"/>
+        <path class="edge" d="M927 53 C923 79 967 102 1003 115"/>
+      </g>
+      <g text-anchor="middle" font-size="23">
+        <text x="68" y="49">head</text>
+        <text x="904" y="49">tail</text>
+        <g class="node"><title>First node</title><text x="195" y="94">Node 0</text>
+        <rect x="117" y="110" width="156" height="86" fill="white" stroke="black"/>
+        <path d="M117 153 H273" stroke="black"/>
+        <text x="195" y="140">Element 0</text>
+        <text x="195" y="183">Next</text></g>
+        <g class="node"><title>Second node</title><text x="455" y="94">Node 1</text>
+        <rect x="377" y="110" width="156" height="86" fill="white" stroke="black"/>
+        <path d="M377 153 H533" stroke="black"/>
+        <text x="455" y="140">Element 1</text>
+        <text x="455" y="183">Next</text></g>
+        <g class="node"><title>Third node</title><text x="715" y="94">Node 2</text>
+        <rect x="637" y="110" width="156" height="86" fill="white" stroke="black"/>
+        <path d="M637 153 H793" stroke="black"/>
+        <text x="715" y="140">Element 2</text>
+        <text x="715" y="183">Next</text></g>
+        <text x="898" y="165">. . .</text>
+        <g class="node"><title>Last node, referenced by tail</title><text x="1085" y="94">Node n-1</text>
+        <rect x="1007" y="110" width="156" height="86" fill="white" stroke="black"/>
+        <path d="M1007 153 H1163" stroke="black"/>
+        <text x="1085" y="140">Element n-1</text>
+        <text x="1085" y="183">Next</text></g>
+      </g>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Image 011 - Topological Sort</h2>
+    <svg width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-labelledby="topo-title">
+      <title id="topo-title">Clothing dependency graph in topological order with DFS discovery and finish times</title>
+      <defs><marker id="topo-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+      <g fill="none" stroke="black" stroke-width="2.5" marker-end="url(#topo-arrow)">
+        <path class="edge" d="M574 130 H594"/>
+        <path class="edge" d="M706 130 H728"/>
+        <path class="edge" d="M838 130 H858"/>
+        <path class="edge" d="M802 106 Q900 50 1005 105"/>
+        <path class="edge" d="M810 154 Q965 192 1108 154"/>
+      </g>
+      <g text-anchor="middle" font-size="19" stroke="black" stroke-width="1.5">
+        <g class="node"><ellipse cx="82" cy="130" rx="67" ry="25" fill="white"/>
+        <text x="82" y="137" stroke="none">underpant</text>
+        <text x="82" y="210" stroke="none">17/18</text></g>
+        <g class="node"><ellipse cx="226" cy="130" rx="55" ry="25" fill="white"/>
+        <text x="226" y="137" stroke="none">watch</text>
+        <text x="226" y="210" stroke="none">15/16</text></g>
+        <g class="node"><ellipse cx="366" cy="130" rx="48" ry="25" fill="white"/>
+        <text x="366" y="137" stroke="none">socks</text>
+        <text x="366" y="210" stroke="none">13/14</text></g>
+        <g class="node"><ellipse cx="508" cy="130" rx="65" ry="25" fill="white"/>
+        <text x="508" y="137" stroke="none">undershirt</text>
+        <text x="508" y="210" stroke="none">1/12</text></g>
+        <g class="node"><ellipse cx="650" cy="130" rx="55" ry="25" fill="white"/>
+        <text x="650" y="137" stroke="none">shirt</text>
+        <text x="650" y="210" stroke="none">2/11</text></g>
+        <g class="node"><ellipse cx="783" cy="130" rx="54" ry="25" fill="white"/>
+        <text x="783" y="137" stroke="none">pants</text>
+        <text x="783" y="210" stroke="none">3/10</text></g>
+        <g class="node"><ellipse cx="905" cy="130" rx="46" ry="25" fill="white"/>
+        <text x="905" y="137" stroke="none">shoes</text>
+        <text x="905" y="182" stroke="none">8/9</text></g>
+        <g class="node"><ellipse cx="1020" cy="130" rx="47" ry="25" fill="white"/>
+        <text x="1020" y="137" stroke="none">belt</text>
+        <text x="1020" y="182" stroke="none">6/7</text></g>
+        <g class="node"><ellipse cx="1134" cy="130" rx="54" ry="25" fill="white"/>
+        <text x="1134" y="137" stroke="none">wallets</text>
+        <text x="1134" y="210" stroke="none">4/5</text></g>
+      </g>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Image 012 - State Machine</h2>
+    <svg width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="state-title">
+      <title id="state-title">Two-state vending machine with coin inputs, change, and coke outputs</title>
+      <defs><marker id="state-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+      <g fill="none" stroke="black" stroke-width="2.5" marker-end="url(#state-arrow)">
+        <path class="edge" d="M317 160 Q523 55 728 160"><title>100: dispense coke and return 50</title></path>
+        <path class="edge" d="M700 273 Q510 390 319 273"><title>50: dispense coke and return to state 0</title></path>
+        <path class="edge" d="M341 220 H704"><title>50: store credit and move to state 1</title></path>
+        <path class="edge" d="M207 153 C48 11 33 363 207 282"><title>100 in state 0: dispense coke</title></path>
+        <path class="edge" d="M836 153 C992 13 995 362 839 283"><title>100 in state 1: dispense coke and retain credit</title></path>
+      </g>
+      <g class="inspect"><circle cx="260" cy="220" r="82" fill="#dceafa" stroke="#7598c6" stroke-width="2"/>
+        <text x="260" y="229" text-anchor="middle" font-size="26">0</text></g>
+      <g class="inspect"><circle cx="787" cy="220" r="82" fill="#f5d1d1" stroke="#be625c" stroke-width="2"/>
+        <text x="787" y="229" text-anchor="middle" font-size="26">1</text></g>
+      <g font-family="monospace" font-size="20" text-anchor="middle">
+        <text x="520" y="71">100/(0, "coke", 50)</text>
+        <text x="520" y="208">50/(50, --, 0)</text>
+        <text x="520" y="390">50/(0, "coke", 0)</text>
+        <text x="168" y="351">100/(0, "coke", 0)</text>
+        <text x="825" y="351">100/(50, "coke", 50)</text>
+      </g>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Image 013 - Box Plot</h2>
+    <svg width="800" height="400" viewBox="0 0 800 400" role="img" aria-labelledby="box-title">
+      <title id="box-title">Annotated box plot showing quartiles, median, interquartile range, whiskers and outliers</title>
+      <defs><marker id="box-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10" fill="none" stroke="black" stroke-width="2"/></marker></defs>
+      <rect x="30" y="16" width="740" height="340" fill="none" stroke="#333"/>
+      <path d="M149 185 H650" stroke="#9292db" stroke-width="2"/>
+      <g class="inspect"><title>Interquartile range: Q1 to Q3</title><rect x="335" y="134" width="126" height="102" fill="#f5a09a" stroke="#777" stroke-width="1.5"/></g>
+      <path class="inspect" d="M398 134 V236" stroke="#ffff65" stroke-width="2"><title>Median (50th percentile)</title></path>
+      <path d="M149 159 V211 M650 159 V211 M335 104 V127 M335 115 H458 M458 104 V127" fill="none" stroke="black" stroke-width="1.5"/>
+      <g fill="#add8a5" stroke="#557955">
+        <circle class="inspect" cx="121" cy="185" r="5.5"><title>Lower outlier</title></circle><circle class="inspect" cx="143" cy="185" r="5.5"><title>Lower outlier</title></circle>
+        <circle class="inspect" cx="663" cy="185" r="5.5"><title>Upper outlier</title></circle><circle class="inspect" cx="675" cy="185" r="5.5"><title>Upper outlier</title></circle>
+      </g>
+      <g text-anchor="middle" font-size="20">
+        <text x="396" y="79">Interquartile Range</text>
+        <text x="396" y="101">(IQR)</text>
+        <text x="122" y="123">Outliers</text>
+        <text x="674" y="123">Outliers</text>
+        <text x="155" y="237">"Minimum"</text>
+        <text x="650" y="237">"Maximum"</text>
+        <text x="155" y="259" font-size="17">(Q1 - 1.5*IQR)</text>
+        <text x="650" y="259" font-size="17">(Q3 + 1.5*IQR)</text>
+        <text x="337" y="267">Q1</text>
+        <text x="398" y="256" font-size="18">Median</text>
+        <text x="461" y="267">Q3</text>
+        <text x="337" y="289" font-size="12">(25th Percentile)</text>
+        <text x="461" y="289" font-size="12">(75th Percentile)</text>
+      </g>
+      <path d="M123 131 V175 M672 131 V175" stroke="black" stroke-width="2" marker-end="url(#box-arrow)"/>
+      <g font-size="16" text-anchor="middle">
+        <line x1="30" y1="356" x2="30" y2="362" stroke="black"/>
+        <text x="30" y="380">-4</text>
+        <line x1="122.5" y1="356" x2="122.5" y2="362" stroke="black"/>
+        <text x="122.5" y="380">-3</text>
+        <line x1="215" y1="356" x2="215" y2="362" stroke="black"/>
+        <text x="215" y="380">-2</text>
+        <line x1="307.5" y1="356" x2="307.5" y2="362" stroke="black"/>
+        <text x="307.5" y="380">-1</text>
+        <line x1="400" y1="356" x2="400" y2="362" stroke="black"/>
+        <text x="400" y="380">0</text>
+        <line x1="492.5" y1="356" x2="492.5" y2="362" stroke="black"/>
+        <text x="492.5" y="380">1</text>
+        <line x1="585" y1="356" x2="585" y2="362" stroke="black"/>
+        <text x="585" y="380">2</text>
+        <line x1="677.5" y1="356" x2="677.5" y2="362" stroke="black"/>
+        <text x="677.5" y="380">3</text>
+        <line x1="770" y1="356" x2="770" y2="362" stroke="black"/>
+        <text x="770" y="380">4</text>
+      </g>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Image 017 - Sigmoid Curve</h2>
+    <svg width="800" height="540" viewBox="0 0 800 540" role="img" aria-labelledby="sigmoid-title">
+      <title id="sigmoid-title">Sigmoid function sigma(x) = 1/(1 + exp(-x)), from -10 to 10</title>
+      <rect x="60" y="20" width="710" height="460" fill="none" stroke="black"/>
+      <g font-size="17" fill="black">
+        <line x1="90" y1="480" x2="90" y2="486" stroke="black"/>
+        <text x="90" y="510" text-anchor="middle">-10.0</text>
+        <line x1="171.25" y1="480" x2="171.25" y2="486" stroke="black"/>
+        <text x="171.25" y="510" text-anchor="middle">-7.5</text>
+        <line x1="252.5" y1="480" x2="252.5" y2="486" stroke="black"/>
+        <text x="252.5" y="510" text-anchor="middle">-5.0</text>
+        <line x1="333.75" y1="480" x2="333.75" y2="486" stroke="black"/>
+        <text x="333.75" y="510" text-anchor="middle">-2.5</text>
+        <line x1="415" y1="480" x2="415" y2="486" stroke="black"/>
+        <text x="415" y="510" text-anchor="middle">0.0</text>
+        <line x1="496.25" y1="480" x2="496.25" y2="486" stroke="black"/>
+        <text x="496.25" y="510" text-anchor="middle">2.5</text>
+        <line x1="577.5" y1="480" x2="577.5" y2="486" stroke="black"/>
+        <text x="577.5" y="510" text-anchor="middle">5.0</text>
+        <line x1="658.75" y1="480" x2="658.75" y2="486" stroke="black"/>
+        <text x="658.75" y="510" text-anchor="middle">7.5</text>
+        <line x1="740" y1="480" x2="740" y2="486" stroke="black"/>
+        <text x="740" y="510" text-anchor="middle">10.0</text>
+        <line x1="54" y1="460" x2="60" y2="460" stroke="black"/>
+        <text x="47" y="466" text-anchor="end">0.0</text>
+        <line x1="54" y1="376" x2="60" y2="376" stroke="black"/>
+        <text x="47" y="382" text-anchor="end">0.2</text>
+        <line x1="54" y1="292" x2="60" y2="292" stroke="black"/>
+        <text x="47" y="298" text-anchor="end">0.4</text>
+        <line x1="54" y1="208" x2="60" y2="208" stroke="black"/>
+        <text x="47" y="214" text-anchor="end">0.6</text>
+        <line x1="54" y1="124" x2="60" y2="124" stroke="black"/>
+        <text x="47" y="130" text-anchor="end">0.8</text>
+        <line x1="54" y1="40" x2="60" y2="40" stroke="black"/>
+        <text x="47" y="46" text-anchor="end">1.0</text>
+      </g>
+      <path id="sigmoid-curve" class="inspect" fill="none" stroke="#167fc1" stroke-width="2.5"><title>σ(x) = 1 / (1 + e⁻ˣ)</title></path>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Image 014 - Seaborn Hierarchy</h2>
+    <svg width="700" height="490" viewBox="0 0 700 490" role="img" aria-labelledby="seaborn-title">
+      <title id="seaborn-title">Seaborn relational, distribution, and categorical plotting families</title>
+      <g class="hierarchy" stroke="#001a9e" fill="#dce1ed" text-anchor="middle" font-size="26">
+        <path d="M125 178 V282" fill="none"/>
+        <rect x="15" y="45" width="220" height="133" rx="34"/>
+        <rect x="42" y="196" width="166" height="39" rx="12"/>
+        <rect x="42" y="245" width="166" height="39" rx="12"/>
+        <g fill="#001a9e" stroke="none"><text x="125" y="103">relplot</text>
+        <text x="125" y="134">(relational)</text>
+        <text x="125" y="223">scatterplot</text>
+        <text x="125" y="272">lineplot</text></g>
+      </g>
+      <g class="hierarchy" stroke="#c73800" fill="#f8e7dc" text-anchor="middle" font-size="26">
+        <path d="M355 178 V382" fill="none"/>
+        <rect x="245" y="45" width="220" height="133" rx="34"/>
+        <rect x="272" y="196" width="166" height="39" rx="12"/>
+        <rect x="272" y="245" width="166" height="39" rx="12"/>
+        <rect x="272" y="294" width="166" height="39" rx="12"/>
+        <rect x="272" y="343" width="166" height="39" rx="12"/>
+        <g fill="#c73800" stroke="none"><text x="355" y="103">displot</text>
+        <text x="355" y="134">(distributions)</text>
+        <text x="355" y="223">histplot</text>
+        <text x="355" y="272">kdeplot</text>
+        <text x="355" y="321">ecdfplot</text>
+        <text x="355" y="370">rugplot</text></g>
+      </g>
+      <g class="hierarchy" stroke="#087b16" fill="#e0ecdf" text-anchor="middle" font-size="26">
+        <path d="M585 178 V480" fill="none"/>
+        <rect x="475" y="45" width="220" height="133" rx="34"/>
+        <rect x="502" y="196" width="166" height="39" rx="12"/>
+        <rect x="502" y="245" width="166" height="39" rx="12"/>
+        <rect x="502" y="294" width="166" height="39" rx="12"/>
+        <rect x="502" y="343" width="166" height="39" rx="12"/>
+        <rect x="502" y="392" width="166" height="39" rx="12"/>
+        <rect x="502" y="441" width="166" height="39" rx="12"/>
+        <g fill="#087b16" stroke="none"><text x="585" y="103">catplot</text>
+        <text x="585" y="134">(categorical)</text>
+        <text x="585" y="223">stripplot</text>
+        <text x="585" y="272">swarmplot</text>
+        <text x="585" y="321">boxplot</text>
+        <text x="585" y="370">violinplot</text>
+        <text x="585" y="419">pointplot</text>
+        <text x="585" y="468">barplot</text></g>
+      </g>
+    </svg>
+  </section>
+
+  <script>
+    var curve = "";
+
+    for (var i = 0; i <= 200; i++) {
+      var x = -10 + i * 0.1;
+      var y = 1 / (1 + Math.exp(-x));
+
+      var svgX = 90 + (x + 10) * 32.5;
+      var svgY = 460 - y * 420;
+
+      if (i == 0) {
+        curve = "M " + svgX + " " + svgY;
+      } else {
+        curve = curve + " L " + svgX + " " + svgY;
+      }
+    }
+
+    document.getElementById("sigmoid-curve").setAttribute("d", curve);
+  </script>
+</body>
+</html>
